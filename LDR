@@ -1,0 +1,27 @@
+int ldr=A0;
+int led1=5;
+int led2=6;
+int sensorValue=0;
+void setup() {
+Serial.begin(9600);
+pinMode(led1,OUTPUT);
+pinMode(led2,OUTPUT);
+pinMode(ldr,INPUT);
+
+}
+
+void loop() {
+ sensorValue=analogRead(ldr);
+ Serial.println(sensorValue);
+delay (500);
+if (sensorValue>=512){
+digitalWrite(5,HIGH);
+digitalWrite(6,HIGH);
+}
+else
+{
+  digitalWrite(5,LOW);
+  digitalWrite(6,LOW);
+  }
+
+}
